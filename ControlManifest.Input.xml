@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-94" ?>
 <manifest>
-  <control namespace="Molyom.PCFControls" constructor="NToNMultiSelectImprovedLabel" version="0.0.97" display-name-key="NToNMultiSelect Improved Label" description-key="NToNMultiSelect imporved label description" control-type="standard">
+  <control namespace="Molyom.PCFControls" constructor="NToNMultiSelectImprovedLabel" version="0.1.33" display-name-key="NToNMultiSelect Improved Label" description-key="NToNMultiSelect imporved label description" control-type="standard">
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
     <property name="value" display-name-key="Value" description-key="Value" of-type="SingleLine.Text" usage="bound" required="true" />
     <property name="linkedEntityName" display-name-key="Linked Entity Name" description-key="Linked Entity Name" of-type="SingleLine.Text" usage="input" required="false" />
@@ -10,7 +10,10 @@
     <property name="relationshipName" display-name-key="Relationship Name" description-key="Relationship Name" of-type="SingleLine.Text" usage="input" required="false" />
     <property name="relationshipEntity" display-name-key="Relationship Entity" description-key="Relationship Entity" of-type="SingleLine.Text" usage="input" required="false" />
     <property name="linkedEntityFetchXmlResource" display-name-key="FetchXml Web Resource" description-key="Optional FetchXml web resource to select linked entity records" of-type="SingleLine.Text" usage="input" required="false" />
-    
+    <property name="NewRecordCreation" display-name-key="New Record Creation" description-key="Let to create New Record in Linked Entity." of-type="Enum" usage="input" required="false" default-value="0">
+      <value name="Yes" display-name-key="Yes" description-key="Create new record.">1</value>
+      <value name="No" display-name-key="No" description-key="Dont Create new records">0</value>
+    </property>
     <feature-usage>
        <uses-feature name="WebAPI" required="true" />
     </feature-usage> 

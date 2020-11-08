@@ -12,6 +12,7 @@ export interface IInputs {
     relationshipName: ComponentFramework.PropertyTypes.StringProperty;
     relationshipEntity: ComponentFramework.PropertyTypes.StringProperty;
     linkedEntityFetchXmlResource: ComponentFramework.PropertyTypes.StringProperty;
+    NewRecordCreation: ComponentFramework.PropertyTypes.EnumProperty<"1" | "0">;
 }
 export interface IOutputs {
     value?: string;
