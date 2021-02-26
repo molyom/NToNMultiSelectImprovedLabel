@@ -241,8 +241,8 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 				$('#' + thisVar._ctrlId).select2({
 					// check if allowed new tag
 					tags: thisVar._letNewCreation,
-					tokenSeparators: [',', ' '],
-					placeholder: 'Select or create a Tag',
+					tokenSeparators: [','],
+					placeholder: 'Select or create a Tag (seperated by ,)',
 				}).on('select2:select', function (e) {
 					var data = e.params.data;
 					thisVar.selecTagAction("select", data);
@@ -464,10 +464,10 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 					let tagNameTocreate: string;
 
 					if (data.text.startsWith("#")) {
-						tagNameTocreate = data.text;
+						tagNameTocreate = data.text.replace("#", '')
 
 					} else {
-						tagNameTocreate = "#" + data.text;
+						tagNameTocreate = data.text;
 					}
 
 					let obj = this._allExistingTagObj.find((o: any) => o.name === tagNameTocreate);
