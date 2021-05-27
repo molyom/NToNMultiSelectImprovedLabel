@@ -7,6 +7,8 @@ import {
 } from "select2";
 import * as $ from 'jquery';
 import "./scripts/select2.min.js";
+import * as ReactDOM from 'react-dom';
+
 
 
 declare var Xrm: any;
@@ -107,7 +109,7 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 	 * @param container If a control is marked control-type='standard', it will receive an empty div element within which it can render its content.
 	 */
 	public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container: HTMLDivElement) {
-		debugger;
+		
 		this.container = container;
 		this.contextObj = context;
 
@@ -243,6 +245,7 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 					tags: thisVar._letNewCreation,
 					tokenSeparators: [','],
 					placeholder: 'Select or create a Tag (seperated by ,)',
+				
 				}).on('select2:select', function (e) {
 					var data = e.params.data;
 					thisVar.selecTagAction("select", data);
@@ -382,6 +385,7 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 	 */
 	public destroy(): void {
 		// Add code to cleanup control if necessary
+		ReactDOM.unmountComponentAtNode(this.container);
 	}
 
 
