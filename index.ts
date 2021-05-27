@@ -17,6 +17,18 @@ class DataAction {
 	guid: string;
 	associate: boolean;
 }
+<<<<<<< HEAD
+=======
+class NToNData {
+	len: string;
+	ida: string;
+	na: string;
+	pa: string;
+	re: string;
+	rn: string;
+	actions: DataAction[];
+}
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 
 // class NToNData {
 // 	len: string;
@@ -28,11 +40,18 @@ class DataAction {
 // 	actions: DataAction[];
 // }
 
+<<<<<<< HEAD
 
 export class TagsPickerControl implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 
 
 	private contextObj: ComponentFramework.Context<IInputs>;
+=======
+export class NToNMultiSelectImprovedLabel implements ComponentFramework.StandardControl < IInputs, IOutputs > {
+
+
+	private contextObj: ComponentFramework.Context < IInputs > ;
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 	// Div element created as part of this control's main container
 	private mainContainer: HTMLSelectElement;
 	private errorElement: HTMLDivElement;
@@ -41,6 +60,7 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 	private container: HTMLDivElement;
 	private _isValidState: boolean = true;
 
+<<<<<<< HEAD
 	//private _relData: NToNData;
 
 	private _FetchXmlTagResource: string;
@@ -77,6 +97,31 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 	private _successCallback: any;
 
 
+=======
+	private _popUpService: any;
+
+	private _relData: NToNData;
+
+	private _linkedEntityName: string;
+	private _relationshipEntity: string;
+	private _relationshipName: string;
+	private _idAttribute: string;
+	private _nameAttribute: string;
+	private _otherNameAttribute: string;
+	private _linkedEntityFetchXmlResource: string;
+
+	private _linkedEntityCollectionName: string;
+	private _mainEntityCollectionName: string;
+
+	private _entityMetadataSuccessCallback: any;
+	private _linkedEntityMetadataSuccessCallback: any;
+	private _relationshipSuccessCallback: any;
+	private _successCallback: any;
+
+	private _letNewCreation: boolean;
+
+	private _ctrlId: string;
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 
 	private _notifyOutputChanged: () => void;
 
@@ -108,8 +153,13 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 	 * @param state A piece of data that persists in one session for a single user. Can be set at any point in a controls life cycle by calling 'setControlState' in the Mode interface.
 	 * @param container If a control is marked control-type='standard', it will receive an empty div element within which it can render its content.
 	 */
+<<<<<<< HEAD
 	public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container: HTMLDivElement) {
 		
+=======
+	public init(context: ComponentFramework.Context < IInputs > , notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container: HTMLDivElement) {
+		debugger;
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 		this.container = container;
 		this.contextObj = context;
 
@@ -122,6 +172,7 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 		} else {
 
 			this._ctrlId = this.newGuid();
+<<<<<<< HEAD
 			//this._relData = new NToNData();
 			//this._relData.actions = [];
 
@@ -160,10 +211,44 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 			}
 
 
+=======
+			this._relData = new NToNData();
+			this._relData.actions = [];
+
+			if (context.parameters.linkedEntityName.raw != null) {
+				this._linkedEntityName = context.parameters.linkedEntityName.raw;
+				this._relData.len = this._linkedEntityName;
+			}
+			if (context.parameters.idAttribute.raw != null) {
+				this._idAttribute = context.parameters.idAttribute.raw;
+				this._relData.ida = this._idAttribute;
+			}
+			if (context.parameters.nameAttribute.raw != null) {
+				this._nameAttribute = context.parameters.nameAttribute.raw;
+				this._relData.na = this._nameAttribute;
+			}
+			if (context.parameters.otherNameAttribute.raw != null) {
+				this._otherNameAttribute = context.parameters.otherNameAttribute.raw;
+				this._relData.pa = this._otherNameAttribute;
+			}
+
+			if (context.parameters.relationshipEntity.raw != null) {
+				this._relationshipEntity = context.parameters.relationshipEntity.raw;
+				this._relData.re = this._relationshipEntity;
+			}
+			if (context.parameters.relationshipName.raw != null) {
+				this._relationshipName = context.parameters.relationshipName.raw;
+				this._relData.rn = this._relationshipName;
+			}
+			if (context.parameters.linkedEntityFetchXmlResource.raw != null) {
+				this._linkedEntityFetchXmlResource = context.parameters.linkedEntityFetchXmlResource.raw;
+			}
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 			if (context.parameters.NewRecordCreation.raw != null) {
 				this._letNewCreation = (context.parameters.NewRecordCreation.raw == "0") ? false : true;
 			}
 
+<<<<<<< HEAD
 			// this._tagEntityName = "new_tag";
 			// this._tagEntityNameAttribute = "new_name";
 			// this._tagEntityIdAttribute = "new_tagid";
@@ -177,6 +262,8 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 			this._entityTagMetadataSuccessCallback = this.entityTagMetadataSuccessCallback.bind(this);
 			this._entityFormMetadataSuccessCallback = this.entityFormMetadataSuccessCallback.bind(this);
 
+=======
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 
 			context.mode.trackContainerResize(true);
 			container.classList.add("pcf_container_element");
@@ -191,10 +278,16 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 
 
 
+<<<<<<< HEAD
 
 			this.mainContainer = document.createElement("select");
 
 			this._allExistingTagObj = [{ name: "1", id: "1" }];
+=======
+			this.mainContainer = document.createElement("select");
+
+
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 
 			this.mainContainer.id = this._ctrlId;
 
@@ -211,6 +304,7 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 			container.appendChild(this.mainContainer);
 
 
+<<<<<<< HEAD
 
 			this._getConnectionSuccess = this.getConnectionSuccess.bind(this);
 			this._successTagCallback = this.successTagCallback.bind(this);
@@ -232,6 +326,24 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 
 			} else {
 				this._getConnectionSuccess(null);
+=======
+			this._entityMetadataSuccessCallback = this.entityMetadataSuccessCallback.bind(this);
+			this._linkedEntityMetadataSuccessCallback = this.linkedEntityMetadataSuccessCallback.bind(this);
+			this._relationshipSuccessCallback = this.relationshipSuccessCallback.bind(this);
+			this._successCallback = this.successCallback.bind(this);
+
+			this._notifyOutputChanged = notifyOutputChanged;
+
+			( < any > Xrm).Utility.getEntityMetadata(( < any > this.contextObj).page.entityTypeName, []).then(this._entityMetadataSuccessCallback, this.errorCallback);
+			( < any > Xrm).Utility.getEntityMetadata(this._linkedEntityName, []).then(this._linkedEntityMetadataSuccessCallback, this.errorCallback);
+			//(<any>Xrm).WebApi.retrieveMultipleRecords(this._relationshipEntity, "?$filter="+ (<any>this.contextObj).page.entityTypeName+"id eq " + (<any>this.contextObj).page.entityId, 5000).then(this._relationshipSuccessCallback, this.errorCallback);
+
+			if (( < any > this.contextObj).page.entityId != null &&
+				( < any > this.contextObj).page.entityId != "00000000-0000-0000-0000-000000000000") {
+				this.contextObj.webAPI.retrieveMultipleRecords(this._relationshipEntity, "?$filter=" + ( < any > this.contextObj).page.entityTypeName + "id eq " + ( < any > this.contextObj).page.entityId, 5000).then(this._relationshipSuccessCallback, this.errorCallback);
+			} else {
+				this.relationshipSuccessCallback(null);
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 			}
 
 			var thisVar: any;
@@ -239,6 +351,7 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 			$(document).ready(function () {
 				thisVar.setReadonly();
 
+<<<<<<< HEAD
 
 				$('#' + thisVar._ctrlId).select2({
 					// check if allowed new tag
@@ -252,12 +365,25 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 				}).on('select2:unselect', function (e) {
 					var data = e.params.data;
 					thisVar.selecTagAction("unselect", data);
+=======
+				$('#' + thisVar._ctrlId).select2({
+					tags: thisVar._letNewCreation,
+					tokenSeparators: [',', ' '],
+					placeholder: 'Select or create a Tag',	
+				}).on('select2:select', function(e) {
+					var data = e.params.data;
+					thisVar.selectAction("select", data);
+				}).on('select2:unselect', function(e) {
+					var data = e.params.data;
+					thisVar.selectAction("unselect", data);
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 				});
 			});
 		}
 	}
 
 
+<<<<<<< HEAD
 	public entityTagMetadataSuccessCallback(value: any): void | PromiseLike<void> {
 		this._tagEntitySetname = value.EntitySetName;
 	}
@@ -300,6 +426,41 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 		/*
 				var thisVar : any = this;
 
+=======
+	public entityMetadataSuccessCallback(value: any): void | PromiseLike < void > {
+		this._mainEntityCollectionName = value.EntitySetName;
+	}
+
+	public linkedEntityMetadataSuccessCallback(value: any): void | PromiseLike < void > {
+		this._linkedEntityCollectionName = value.EntitySetName;
+	}
+
+	public addOptions(value: any) {
+		for (var i in value.entities) {
+			var current: any = value.entities[i];
+
+			var checked = this.selectedItems.indexOf( < string > current[this._idAttribute]) > -1;
+			var toInsert = "";
+			if (this._otherNameAttribute !== null) {
+				//"_pes_parentsector_value@OData.Community.Display.V1.FormattedValue"
+				if (current[this._otherNameAttribute] !== undefined) {
+					toInsert = " <" + current[this._otherNameAttribute] + "> ";
+				}
+			}
+
+			var newOption = new Option(current[this._nameAttribute] + toInsert, current[this._idAttribute], checked, checked);
+			$('#' + this._ctrlId).append(newOption);
+			/*
+					var option = document.createElement("option");
+					option.value = current[this._idAttribute];
+					option.text = current[this._nameAttribute];
+					this.mainContainer.options.add(option);
+				*/
+		}
+		/*
+				var thisVar : any = this;
+
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 				setTimeout(function(){ 
 					for(var si in thisVar.selectedItems){
 						var sel : any = thisVar.selectedItems[si];
@@ -309,15 +470,21 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 				*/
 	}
 
+<<<<<<< HEAD
 
 
 	public successTagCallback(value: any): void | PromiseLike<void> {
 		this.addTagOptions(value);
+=======
+	public successCallback(value: any): void | PromiseLike < void > {
+		this.addOptions(value);
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 		//this.initTree();
 
 	}
 
 
+<<<<<<< HEAD
 
 	public getConnectionSuccess(value: any): void | PromiseLike<void> {
 		if (value != null) {
@@ -326,36 +493,64 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 			}
 		}
 		if (this._FetchXmlTagResource != null) {
+=======
+	public relationshipSuccessCallback(value: any): void | PromiseLike < void > {
+		if (value != null) {
+			for (var i in value.entities) {
+				this.selectedItems.push(value.entities[i][this._idAttribute]);
+			}
+		}
+		if (this._linkedEntityFetchXmlResource != null) {
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 			var _self = this;
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function () {
 				if (this.readyState == 4 && this.status == 200) {
+<<<<<<< HEAD
 					_self.contextObj.webAPI.retrieveMultipleRecords(_self._FetchXmlTagResource, "?fetchXml=" + encodeURIComponent(this.responseText), 5000).then(_self._successCallback, _self.errorCallback);
+=======
+					_self.contextObj.webAPI.retrieveMultipleRecords(_self._linkedEntityName, "?fetchXml=" + encodeURIComponent(this.responseText), 5000).then(_self._successCallback, _self.errorCallback);
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 				}
 			};
 			xhttp.open("GET", this._FetchXmlTagResource, true);
 			xhttp.send();
 
 		} else {
+<<<<<<< HEAD
 			this.contextObj.webAPI.retrieveMultipleRecords(this._tagEntityName, "?$orderby=" + this._tagEntityNameAttribute + " asc", 5000).then(this._successTagCallback, this.errorCallback);
 		}
 	}
 
 
 
+=======
+			this.contextObj.webAPI.retrieveMultipleRecords(this._linkedEntityName, "?$orderby=" + this._nameAttribute + " asc", 5000).then(this._successCallback, this.errorCallback);
+		}
+	}
+
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 	public errorCallback(value: any) {
 		alert(value);
 	}
 
 	public setReadonly(): void {
+<<<<<<< HEAD
 		(<HTMLElement>this.container.firstElementChild).style.display = this.contextObj.mode.isControlDisabled == false ? "none" : "block";
+=======
+		( < HTMLElement > this.container.firstElementChild).style.display = this.contextObj.mode.isControlDisabled == false ? "none" : "block";
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 	}
 
 	/**
 	 * Called when any value in the property bag has changed. This includes field values, data-sets, global values such as container height and width, offline status, control metadata values such as label, visible, etc.
 	 * @param context The entire property bag available to control via Context Object; It contains values as set up by the customizer mapped to names defined in the manifest, as well as utility functions
 	 */
+<<<<<<< HEAD
 	public updateView(context: ComponentFramework.Context<IInputs>): void {
+=======
+	public updateView(context: ComponentFramework.Context < IInputs > ): void {
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 		if (this._isValidState == false) return;
 		// Add code to update control view
 		this.contextObj = context;
@@ -374,7 +569,11 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 			};
 		} else {
 			return {
+<<<<<<< HEAD
 				value: "NTONDATA:" + this.selectedItems.toString()
+=======
+				value: "NTONDATA:" + JSON.stringify(this._relData)
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 			};
 		}
 	}
@@ -388,8 +587,12 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 		ReactDOM.unmountComponentAtNode(this.container);
 	}
 
+<<<<<<< HEAD
 
 	public selecTagAction(action: string, data: any) {
+=======
+	public selectAction(action: string, data: any) {
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 		/*
 		function (e: any, data: any) {
 					ProcessClick(
@@ -399,6 +602,7 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 				}
 		*/
 
+<<<<<<< HEAD
 		if ((<any>this.contextObj).page.entityId == null ||
 			(<any>this.contextObj).page.entityId == "00000000-0000-0000-0000-000000000000") {
 			// if (action == "select") {
@@ -512,10 +716,147 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 										//	alert("Done Connection:" +newEntityId)
 									},
 									function (error: any) {
+=======
+		if (( < any > this.contextObj).page.entityId == null ||
+			( < any > this.contextObj).page.entityId == "00000000-0000-0000-0000-000000000000") {
+			if (action == "select") {
+				debugger;
+				var act = new DataAction();
+				act.associate = true;
+				act.guid = data.id;
+				this._relData.actions.push(act);
+
+			} else {
+				for (var i = 0; i < this._relData.actions.length; i++) {
+					var act = this._relData.actions[i];
+					if (act.guid == data.id) {
+						this._relData.actions.splice(i, 1);
+						break;
+					}
+				}
+
+			}
+			this._notifyOutputChanged();
+
+		} else {
+
+			var url: string = ( < any > Xrm).Utility.getGlobalContext().getClientUrl();
+			var recordUrl: string = url + "/api/data/v9.1/" + this._mainEntityCollectionName + "(" + ( < any > this.contextObj).page.entityId + ")";
+
+			if (action == "select") {
+				if (data.id != data.text) {
+
+					//See himbap samples here: http://himbap.com/blog/?p=2063
+					var associate = {
+						"@odata.id": recordUrl
+					};
+
+					var req = new XMLHttpRequest();
+					req.open("POST", url + "/api/data/v9.1/" + this._linkedEntityCollectionName + "(" + data.id + ")/" + this._relationshipName + "/$ref", true);
+					req.setRequestHeader("Accept", "application/json");
+					req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+					req.setRequestHeader("OData-MaxVersion", "4.0");
+					req.setRequestHeader("OData-Version", "4.0");
+					req.onreadystatechange = function() {
+						if (this.readyState == 4 /* complete */ ) {
+							req.onreadystatechange = null;
+							if (this.status == 204) {
+								//alert('Record Associated');
+							} else {
+								var error = JSON.parse(this.response).error;
+								alert(error.message);
+							}
+						}
+					};
+					req.send(JSON.stringify(associate));
+				} else {
+					var thisValue = this;
+					//let optionforDuplicate :string = "?$select="+thisValue._nameAttribute+"&$filter=contains(" + thisValue._nameAttribute + ",' #"+data.text+"')";
+					//let s : string = Xrm.Encoding.htmlEncode(optionforDuplicate);
+					
+					// check if new tag exist. 
+					// Xrm.WebApi.online.retrieveMultipleRecords(thisValue._linkedEntityName,s ).then(
+					// 	function success(results:any) {
+					// 		if(results.entities.length >0 ){
+					// 			let names :any  ="";
+					// 			for (var i = 0; i < results.entities.length; i++) {
+					// 				names =+ results.entities[i][thisValue._nameAttribute] + "\n";
+					// 				console.log(names);
+					// 			}
+
+	
+					// 			var confirmStrings = {
+					// 				text: "Record already exist. Please choose from existing \n (:" + names ,
+					// 				title: "Confirm"
+					// 			};
+							
+					// 			Xrm.Navigation.openConfirmDialog(confirmStrings, null).then(
+					// 				function(success: any) {
+					// 					if (success.confirmed) {
+					// 						console.log("OK" + data.text);
+					// 					}
+					// 				}
+					// 				)
+			
+						
+							
+					// 		//	alert("exist");
+							
+					// 		}else{
+
+				
+					
+					// var confirmStrings = {
+					// 	text: "Are you sure you want to create a new record? \n (#" + data.text + " will created) \n",
+					// 	title: "Confirm"
+					// };
+				
+					// Xrm.Navigation.openConfirmDialog(confirmStrings, null).then(
+					// 	function(success: any) {
+					// 		if (success.confirmed) {
+					// 			console.log("OK" + data.text);
+
+								// create tag:
+								let entity: any = {};
+								entity[thisValue._nameAttribute] = "#" + data.text;
+								let newEntityId: string = "";
+
+
+								Xrm.WebApi.online.createRecord(thisValue._linkedEntityName, entity).then(
+									function success(result: any) {
+										newEntityId = result.id;
+
+										var associate = {
+											"@odata.id": recordUrl
+										};
+
+										var req = new XMLHttpRequest();
+										req.open("POST", url + "/api/data/v9.1/" + thisValue._linkedEntityCollectionName + "(" + newEntityId + ")/" + thisValue._relationshipName + "/$ref", true);
+										req.setRequestHeader("Accept", "application/json");
+										req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+										req.setRequestHeader("OData-MaxVersion", "4.0");
+										req.setRequestHeader("OData-Version", "4.0");
+										req.onreadystatechange = function() {
+											if (this.readyState == 4 /* complete */ ) {
+												req.onreadystatechange = null;
+												if (this.status == 204) {
+													//alert('Record Associated');
+												} else {
+													var error = JSON.parse(this.response).error;
+													alert(error.message);
+												}
+											}
+										};
+										req.send(JSON.stringify(associate));
+
+									},
+									function(error: any) {
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 										Xrm.Utility.alertDialog(error.message);
 									}
 								);
 
+<<<<<<< HEAD
 							},
 							function (error: any) {
 								Xrm.Utility.alertDialog(error.message);
@@ -561,10 +902,24 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 
 
 
+=======
+						//	} else
+						//		console.log("Not OK");
+						//});
+	
+					//	alert("dont exist");													
+			//		}
+				// 	},
+				// 	function(error: any) {  // looking for duplicated failes
+				// 		Xrm.Utility.alertDialog(error.message);
+				// 	}
+				// );
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 
 
 				}
 
+<<<<<<< HEAD
 
 
 			} else if (action == "unselect") {
@@ -595,6 +950,29 @@ export class TagsPickerControl implements ComponentFramework.StandardControl<IIn
 						}
 					);
 
+=======
+			} else if (action == "unselect") {
+
+				if (data.id != data.text) {
+					var req = new XMLHttpRequest();
+					req.open("DELETE", url + "/api/data/v9.1/" + this._linkedEntityCollectionName + "(" + data.id + ")/" + this._relationshipName + "/$ref" + "?$id=" + recordUrl, true);
+					req.setRequestHeader("Accept", "application/json");
+					req.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+					req.setRequestHeader("OData-MaxVersion", "4.0");
+					req.setRequestHeader("OData-Version", "4.0");
+					req.onreadystatechange = function() {
+						if (this.readyState == 4 /* complete */ ) {
+							req.onreadystatechange = null;
+							if (this.status == 204) {
+								//alert('Record Disassociated');
+							} else {
+								var error = JSON.parse(this.response).error;
+								alert(error.message);
+							}
+						}
+					};
+					req.send();
+>>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
 				}
 			}
 
