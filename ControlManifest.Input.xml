@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-94" ?>
 <manifest>
-<<<<<<< HEAD
-  <control namespace="Molyom.PCFControls" constructor="TagsPickerControl" version="0.0.85" display-name-key="TagsPickerControl Improved Label" description-key="NToNMultiSelect imporved label description" control-type="standard">
+  <control namespace="Molyom.PCFControls" constructor="TagsPickerControl" version="0.0.90" display-name-key="TagsPickerControl Improved Label" description-key="NToNMultiSelect imporved label description" control-type="standard">
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
     <property name="value" display-name-key="Value" description-key="Value" of-type="SingleLine.Text" usage="bound" required="true" />
     <property name="tagEntityName" display-name-key="Tag Entity Name" description-key="Tag Entity Name" of-type="SingleLine.Text" usage="input" required="false" />
@@ -14,18 +13,6 @@
     <property name="connectionRecord1Field" display-name-key="Connection Record1 Attribute" description-key="Connection Record1 Attribute" of-type="SingleLine.Text" usage="input" required="false" />
     <property name="connectionRecord2Field" display-name-key="Connection Record2 Attribute" description-key="Connection Record2 Attribute" of-type="SingleLine.Text" usage="input" required="false" />
     <property name="FetchXmlTagResource" display-name-key="FetchXml Web Resource" description-key="Optional FetchXml web resource to select linked entity records" of-type="SingleLine.Text" usage="input" required="false" />
-=======
-  <control namespace="Molyom.PCFControls" constructor="NToNMultiSelectImprovedLabel" version="0.1.33" display-name-key="NToNMultiSelect Improved Label" description-key="NToNMultiSelect imporved label description" control-type="standard">
-    <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
-    <property name="value" display-name-key="Value" description-key="Value" of-type="SingleLine.Text" usage="bound" required="true" />
-    <property name="linkedEntityName" display-name-key="Linked Entity Name" description-key="Linked Entity Name" of-type="SingleLine.Text" usage="input" required="false" />
-    <property name="nameAttribute" display-name-key="Linked Entity Name Attribute" description-key="Linked Entity Name Attribute" of-type="SingleLine.Text" usage="input" required="false" />
-    <property name="idAttribute" display-name-key="Linked Entity ID Attribute" description-key="Linked Entity ID Attribute" of-type="SingleLine.Text" usage="input" required="false" />
-    <property name="otherNameAttribute" display-name-key="Other Name Attribute" description-key="Other Name Attribute for categories" of-type="SingleLine.Text" usage="input" required="false"/>
-    <property name="relationshipName" display-name-key="Relationship Name" description-key="Relationship Name" of-type="SingleLine.Text" usage="input" required="false" />
-    <property name="relationshipEntity" display-name-key="Relationship Entity" description-key="Relationship Entity" of-type="SingleLine.Text" usage="input" required="false" />
-    <property name="linkedEntityFetchXmlResource" display-name-key="FetchXml Web Resource" description-key="Optional FetchXml web resource to select linked entity records" of-type="SingleLine.Text" usage="input" required="false" />
->>>>>>> a16108c7a19f0922aa28c4f5eb2d2797efc12caa
     <property name="NewRecordCreation" display-name-key="New Record Creation" description-key="Let to create New Record in Linked Entity." of-type="Enum" usage="input" required="false" default-value="0">
       <value name="Yes" display-name-key="Yes" description-key="Create new record.">1</value>
       <value name="No" display-name-key="No" description-key="Dont Create new records">0</value>
